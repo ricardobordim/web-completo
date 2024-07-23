@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperando Atributos</title>
+    <!-- <script src="jquery-3.7.1.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Está carregando no Head, mas somente entra em execução quando  -->
+    <!-- todos os elementos do DOM já estão carregados. -->
+
+    <script>
+        $(document).ready(() => {
+            // attr(Atributo 1 = recupera valor)
+            console.log('Conteudo Div1:' ,$('#div1').html());
+
+            console.log($('#div2').html());
+
+            console.log($('#div3').html());
+
+
+            // attr(Atributo 1 = atribui valor)
+            console.log($('#div1').html('Dois'));
+
+            // Texto Puro
+            console.log($('#div2').text('<strong style="color:red"> TRÊS </strong>'));
+
+            // Tag HTML
+            console.log($('#div3').html('<strong style="color:red"> TRÊS </strong>'));
+
+
+
+
+
+
+
+
+        })
+    </script>
+</head>
+
+<body>
+    <div id="div1" style="border: 1px solid black; width:150px; height:150px"> 
+        Div UM
+    </div>
+    <div id="div2" style="border: solid 1px black; width:150px; height:150px">
+         Div Dois
+    </div>
+    <div id="div3" style="border: solid 1px black; width:150px; height:150px">
+        <a href="">Teste de Ancora</a> 
+        <p>Teste de paragrafo</p>
+        <div>Teste de Div</div>
+    </div>
+
+
+
+</body>
+
+</html>

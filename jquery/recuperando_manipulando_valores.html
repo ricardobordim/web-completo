@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperando Atributos</title>
+    <!-- <script src="jquery-3.7.1.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Está carregando no Head, mas somente entra em execução quando  -->
+    <!-- todos os elementos do DOM já estão carregados. -->
+
+    <script>
+        $(document).ready(() => {
+            // Os valores não estão definidos, então não tenho como pegar o valor enquanto não tratar eventos.
+            //  ($('#nome').val());
+            // ($('#origem').val());
+
+            // Manipulando valores
+              ($('#nome').val('Ricardo Bordim'));
+              ($('#origem').val('4'));
+
+
+        })
+    </script>
+</head>
+
+<body>
+    <div style="border: 1px solid red; margin-bottom: 10px; padding:10px">
+        <p>Nome:</p>
+        <input id="nome" type="text">
+    </div>
+    <br>
+    <p>Onde vocês nos encontrou?</p>
+    <select id="origem">
+        <option value="1">Google</option>
+        <option value="2">Facebook</option>
+        <option value="3">Rádio</option>
+        <option value="4">Web</option>
+        <option value="51">No Bar</option>
+    </select>
+
+
+    
+
+
+</body>
+
+</html>

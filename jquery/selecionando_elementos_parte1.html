@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecionando Elementos Parte 1</title>
+    <!-- <script src="jquery-3.7.1.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>Selecionando Elementos Parte 1</h1>
+   <div> Div 1 </div>
+   <div class="diversos1"> Div 2 </div>
+
+   <ul id="menu1">
+    <li> Menu 1 - Item 1</li>
+    <li> Menu 1 - Item 2</li>
+    <li> Menu 1 - Item 3</li>
+   </ul>
+
+    <ul>
+        <li class= "itemMenu2"> Menu 2 - Item 1</li>
+        <li class= "itemMenu2"> Menu 2 - Item 2</li>
+        <li class= "itemMenu2"> Menu 2 - Item 3</li>
+    </ul>
+    <input type="text" placeholder="campo1"/>
+
+    <select class="diversos1">
+        <option>-- Selecione o Valor</option>
+        <option> Opção 1 </option>
+        <option> Opção 2 </option>
+    </select>
+
+    <br>
+    <img src="carro.jpg" alt="Carro">
+
+
+</body>
+<script>
+    // Selecionando por Tag
+    console.log($('h1'));
+    console.log($('div'));
+    console.log($('ul'));
+    console.log($('li'));
+    console.log($('input'));
+    console.log($('select'));
+    console.log($('img'));
+
+    // Selecionando por Classe
+    console.log($('.itemMenu2'));
+    console.log($('.diversos1'));
+
+    // Selecionando por ID
+    console.log($('#menu1'));
+</script>
+
+</html>
+;

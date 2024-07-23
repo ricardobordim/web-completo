@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecionando Elementos Parte 2</title>
+    <!-- <script src="jquery-3.7.1.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <input class="exemplo1" type="text" placeholder="input 1"/>
+    <input type="text" placeholder="input 2" />
+    <input type="text" placeholder="input 3" />
+
+    <div class="exemplo1">div 1</div>
+    <div>div 2</div>
+    <div>div 3</div>
+
+    <div class="lista2">div 4
+        <div class="exemplo2">
+            div 5
+        </div>
+    </div>
+
+
+    <ul class="lista1">
+        <li class="exemplo1">opcao 1</li>
+        <li class="exemplo2">opcao 2</li>
+        <li class="exemplo2">opcao 3</li>
+
+    </ul>
+    <ul class="lista2">
+        <li class="exemplo1">opcao 1</li>
+        <li class="exemplo2">opcao 2</li>
+        <li class="exemplo2">opcao 3</li>
+    </ul>
+
+</body>
+<script>
+    // Combinando de seletores
+    console.log($('.exemplo1'));
+
+    // selecionar elementos por classe de tag específica
+    console.log($('li.exemplo1'));
+
+    // selecionar elementos por classe de classe específica
+    console.log($('.lista2 .exemplo2'));
+
+
+    // selecionar classes e elementos 
+    console.log($('.lista2 div.exemplo2'));
+
+
+    // Atuação sobre o array de retorno dos elementos selecionados
+    console.log($('.lista2 .exemplo2'));
+
+
+    // :firt (primeiro) :last(último) :even(pares) :odd(impares)
+    console.log($('.lista2 .exemplo2:first'));
+    console.log($('.lista2 .exemplo2:last')); 
+    console.log($('.lista2 .exemplo2:even'));
+    console.log($('.lista2 .exemplo2:odd'));
+
+
+
+</script>
+
+</html>
+;

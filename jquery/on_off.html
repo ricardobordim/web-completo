@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <style>
+        .desfocado{
+            background-color: white;
+        }
+        .focado{
+            background-color: greenyellow;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(() => {
+            // $('input').on('focus',(e)=>{
+            //     $(e.target).removeClass('desfocado');
+            //     $(e.target).addClass('focado');
+            // })
+
+            // $('input').on('blur', (e) => {
+            //     $(e.target).removeClass('focado');
+            //     $(e.target).addClass('desfocado');
+            // })
+
+
+            // Criado dinamicamente não recebe o que foi definido acima.
+            $('body').append('<br> <br> <input type="text" class="desfocado" />');
+
+
+            // resolve o problema subindo até o pai e indicando quais filhos recebem
+            $('body').on('focus', 'input', (e) => {
+                $(e.target).removeClass('desfocado');
+                $(e.target).addClass('focado');
+            })
+
+            $('body').on('blur', 'input', (e) => {
+                $(e.target).removeClass('focado');
+                $(e.target).addClass('desfocado');
+            })
+
+        })
+    </script>
+</head>
+
+<body>
+    <input type="text" class="desfocado" name="" id="">
+
+
+</body>
+
+</html>

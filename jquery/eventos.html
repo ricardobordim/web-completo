@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery</title>
+
+		<style>
+			#divExterna{
+				background-color:  #ccc;
+				height: 80px;
+				width: 80px;
+				padding: 70px;
+			}
+			#divInterna{
+				background-color: blue;
+				width: 80px;
+				height: 80px;
+			}
+			.inputFocado{
+				background-color: greenyellow;
+			}
+			
+		</style>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script>
+			$(document).ready(()=>{
+				$('#onload').html('Página Carregada');
+
+				$(window).scroll(()=>{
+					$('#scroll').html('Scroll acionado');
+				})
+
+				$(window).resize(()=>{
+					$('#resize').html('Página redimensionada').css('background-color','red');
+				})
+
+				// function / arrow function 
+				// $('#div1').scroll(function() {
+				// 	$(this).css('background-color','blue');
+				// })
+
+
+				// $('#div1').scroll(function () {
+				// 	$('#div1').css('background-color', 'blue');
+				// })
+
+				$('#div1').scroll(()=> {
+					$('#div1').css('background-color', 'blue');
+				})
+
+				// $('#div1').scroll(e => {
+				// 	console.log(e);
+				// 	$(e.target).css('background-color', 'blue');
+				// })
+
+				$('#btn1').mousedown(()=>{
+					$('#div2').css('background-color', 'green');
+				})
+
+				$('#btn1').mouseup(() => {
+					$('#div2').css('background-color', 'blue');
+				})
+
+				// Muito parecido com o mouseup, mas é o término do processo.
+				$('#btn1').click(() => {
+					$('#div2').css('background-color', 'red');
+				})
+
+				$('#btn2').dblclick(() => {
+					$('#div2').css('background-color', 'yellow');
+				})
+
+				// Mouse Move é a base do Drag and Drop
+
+				$('#div2').mousemove((e) => {
+					// console.log(e.offsetX, e.offsetY);
+					$('#resultadoDiv').html('X: ' + e.offsetX + ' / Y: ' + e.offsetY);
+				})
+
+
+				// Se comportam diferentes dentro de uma hierarquia de elementos HTML
+
+				// mouseover / mouseout (antigos)
+
+				// mouseenter / mouseleave (novos)
+
+				// Muito fácil de se confundir mousenter, mouseover = entrando na área
+				// Muito fácil de se confundir mouseout, mouseleave = saindo na área
+
+				$('#divExterna').mouseenter(() => {
+					$('#resultadoDiv1').html('entrou');
+					console.log('Div Externa (entrou)');
+				})
+
+				$('#divExterna').mouseleave(() => {
+					$('#resultadoDiv1').html('saiu');
+					console.log('Div Externa (saiu)');
+				})
+				
+				$('#divInterna').mouseenter(() => {
+					$('#resultadoDiv2').html('entrou');
+					console.log('Div Interna (entrou)');
+				})
+
+				$('#divInterna').mouseleave(() => {
+					$('#resultadoDiv2').html('saiu');
+					console.log('Div Interna (saiu)');
+				})				
+					
+
+				// Simula o efeito borbulhamento bubble
+				// $('#divExterna').mouseover(()=>{
+				// 	$('#resultadoDiv1').html('entrou');
+				// 	// Efeito Booble
+				// 	console.log('Div Externa (entrou)');
+				// })
+					
+				// $('#divExterna').mouseout(() => {
+				// 	$('#resultadoDiv1').html('saiu');
+				// 	console.log('Div Externa (saiu)')
+				// })
+				
+				// $('#divInterna').mouseover(() => {
+				// 	$('#resultadoDiv2').html('entrou');
+				// 	console.log('Div Interna (entrou)');
+				// })
+
+				// $('#divInterna').mouseout(() => {
+				// 	$('#resultadoDiv2').html('saiu');
+				// 	console.log('Div Interna (saiu)');
+				// })
+
+
+				$('#teclado').keydown(()=>{
+					$('#resultadoTecla').html('Tecla pressionada');
+				})
+
+
+				// Aceita apenas 1 2 3 4
+				$('#teclado').keyup((e) =>{
+					if (e.keyCode < 97 || e.keyCode > 100){
+						let txt = $(e.target).val();
+						txt = txt.slice(0,-1);
+						$(e.target).val(txt);
+					}
+				})
+
+				$('#teclado').keyup((e) => {
+					$('#resultadoTecla').html('Tecla liberada');
+					// Quando der enter  pega o texto
+					if (e.keyCode == 13) {
+						let txt = $(e.target).val();
+						$('#resultadoTecla').html(txt);
+						$(e.target).val('');
+					}
+					console.log(e.keyCode);
+				})
+				$('#nome , #email').focus((e)=>{
+					// console.log('Esse elemento recebeu o foco (nome)');
+					$(e.target).addClass('inputFocado');
+				})
+				// $('#email').focus((e) => {
+				// 	$(e.target).addClass('inputFocado');
+				// 	console.log('Esse elemento recebeu o foco (email)');
+				// })
+
+				$('#nome, #email').blur((e) => {
+					// console.log('Esse elemento perdeu o foco (nome)');
+					$(e.target).removeClass('inputFocado');
+				})
+				// $('#email').blur((e) => {
+				// 	console.log('Esse elemento perdeu o foco (email)');
+				// 	$(e.target).removeClass('inputFocado');
+				// })
+
+
+				$('#opcao').change((e)=>{
+					// console.log('Opção Modificada');
+					console.log($(e.target).val());
+				})
+
+
+				// Pode interceptar o envio de um submit, não ocorrendo a atualização da página
+				$('form').submit((e)=>{
+					// Previne que o padrão (atualização) ocorra
+					e.preventDefault();
+					console.log('Formulário enviado');
+
+				})
+
+				$('a').click((e)=>{
+					e.preventDefault();
+				})
+
+
+
+			})
+
+		</script>
+	</head>
+
+	<body>
+		
+		<div id="topo">
+			<h1>Eventos</h1>
+		</div>
+
+		<div>
+			<h3>Browser</h3>
+			<span>Onload: </span><span id="onload">?</span><br />
+			<span>Scroll: </span><span id="scroll">?</span><br />
+			<span>Resize Window: </span><span id="resize">?</span>
+			<div id="div1" style="height: 100px; width:100px;border: 1px solid red; overflow-y:scroll">
+				<br> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			</div>
+			<hr />
+
+			<h3>Mouse</h3>
+			<button id="btn1" type="button">Clique aqui</button>
+			<button id="btn2" type="button">Clique aqui 2x</button>
+			<div id="div2" style="background-color: red; width: 80px; height: 50px; margin-top: 10px; margin-bottom: 10px"></div>
+			<span>Resultado do evento sobre a div</span> <span id="resultadoDiv"></span>
+
+			<div id="divExterna">
+				<div id="divInterna">
+
+				</div>
+			</div>
+			<span>Div Externa: </span> <span id="resultadoDiv1"></span>
+			<br>
+			<span>Div Interna: </span> <span id="resultadoDiv2"></span>
+			<hr />
+
+			<h3>Teclado</h3>
+			<span>Nome:</span>
+			<input id="teclado" type="text" />
+			<span id="resultadoTecla">Resultado do evento sobre o input</span>
+			<hr />
+
+			<h3>Formulário</h3>
+			<form id="form">
+				<span>Nome:</span>
+				<input id="nome" type="text" />
+
+				<span>E-mail:</span>
+				<input id="email" type="text" />
+
+				<span>Motivo do contato:</span>
+				<select id="opcao">
+					<option value="">-- Selecione --</option>
+					<option value="duvida">Dúvida</option>
+					<option value="sugestao">Sugestão</option>
+				</select>
+				
+				<button type="submit">Enviar</button>
+			</form>
+			<hr>
+			<a href="http://www.google.com.br">Google</a>
+		</div>
+	</body>
+
+</html>

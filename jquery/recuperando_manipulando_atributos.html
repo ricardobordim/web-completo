@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperando Atributos</title>
+    <!-- <script src="jquery-3.7.1.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Está carregando no Head, mas somente entra em execução quando  -->
+    <!-- todos os elementos do DOM já estão carregados. -->
+
+    <script>
+        $(document).ready(()=>{
+            // attr(Atributo 1 = recupera valor)
+            console.log($('img').attr('src'));
+            console.log($('img').attr('border'));
+
+            // attr(Atributo 2 = altera valor)
+            console.log($('img').attr('src','esfera_2.png'));
+            console.log($('img').attr('border','20'));
+
+            console.log($('div').attr('style'));
+            // O Segundo atributo é atribuição de valor
+            
+            console.log($('div').attr('style','background-color: blue; width:200px; height:200px'));
+            console.log($('input').attr('value','Sou o Governo'));
+            console.log($('input').attr('type', 'button'));
+
+
+
+
+
+        })
+    </script>
+</head>
+
+<body>
+    <img src="esfera_1.png" border="5">
+    <div style="background-color: red; width: 100px; height: 100px;"></div>
+    <input type="text" value="Eu sou o Estado">
+    
+
+</body>
+
+</html>

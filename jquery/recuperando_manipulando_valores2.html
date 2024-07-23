@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperando Atributos</title>
+    <!-- <script src="jquery-3.7.1.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Está carregando no Head, mas somente entra em execução quando  -->
+    <!-- todos os elementos do DOM já estão carregados. -->
+
+    <script>
+        $(document).ready(() => {
+            // Os valores não estão definidos, então não tenho como pegar o valor enquanto não tratar eventos.
+            
+            // selecionar o elemento
+            // $('.sexo');
+
+            //  Selecionar o elemento selecionado e o valor
+            // $('.sexo:checked').val()
+
+            // Checkbox pode retornar mais de um valor, nesse caso retorna apenas o primeiro
+            // para resolver precisa um loop
+            // $('.interesse:checked').val()
+
+            //loop each();
+            // $.each($('.interesse:checked'),(indice,valor)=> {
+            //     console.log(indice, valor)
+            // });
+
+            // Pegando o valor
+            $.each($('.interesse:checked'), (indice, valor) => {
+                console.log(indice, valor.value)
+            });
+
+            // Manipulando valores
+
+
+        })
+    </script>
+</head>
+
+<body>
+    <div style="border: 1px solid red; margin-bottom: 10px; padding:10px">
+        <p>Nome:</p>
+        <input id="nome" type="text">
+    </div>
+    <br>
+    <p>Onde vocês nos encontrou?</p>
+    <select id="origem">
+        <option value="1">Google</option>
+        <option value="2">Facebook</option>
+        <option value="3">Rádio</option>
+        <option value="4">Web</option>
+        <option value="51">No Bar</option>
+    </select>
+    <br>
+    <p>Sexo</p>
+    <input type="radio" name="sexo" class="sexo" value="f">Feminino <br/>
+    <input type="radio" name="sexo" class="sexo" value="m">Masculino <br />
+    <br>
+
+
+    <p>Interesses</p>
+    <input type="checkbox" name="interesse" class="interesse" value="php">PHP <br>
+    <input type="checkbox" name="interesse" class="interesse" value="js">JavaScript <br>
+    <input type="checkbox" name="interesse" class="interesse" value="angular">Angular <br>
+    <input type="checkbox" name="interesse" class="interesse" value="nodejs">NodeJS <br>
+
+
+
+</body>
+
+</html>

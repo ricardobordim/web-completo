@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperando Atributos</title>
+    <!-- <script src="jquery-3.7.1.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Está carregando no Head, mas somente entra em execução quando  -->
+
+    <script>
+        $(document).ready(() => {
+
+            // Dentro, sendo Antes ou Depois no filhos
+            $('#lista1').prepend('<li> Item 0 </li>');
+            $('#lista1').append('<li> Item 4 </li>');
+
+            // Fora, sendo Antes ou Depois
+            $('#lista2').before('<p> Fui Inserido Antes</p>');
+            $('#lista2').after('<p> Fui Inserido Depois</p>');
+
+            // Removendo dinamicamente
+            $('h1').remove();
+        })
+    </script>
+</head>
+
+<body>
+
+    <ul id="lista1">
+        <li>Item 1 </li>
+        <li>Item 2 </li>
+        <li>Item 3 </li>
+    </ul>
+    <div id="lista2">
+        <div>Item 1</div>
+        <div>Item 2</div>
+        <div>Item 3</div>
+    </div>
+
+    <h1>Será removido</h1>
+</body>
+
+</html>
